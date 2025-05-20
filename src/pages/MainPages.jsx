@@ -16,14 +16,22 @@ const MainPages = () => {
     // funzione per la ricerca dei film tramite chiamataa axios
     const searchMovies = async () => {
         try {
-            const response = await axios.get(
+            // chiamata per la ricerca dei film
+            const movieResponse = await axios.get(
                 `https://api.themoviedb.org/3/search/movie?api_key=7ab5d6135ce0dc792ccf3d67dbe0c8f8&query=${search}`
             );
-            setResults(response.data.results);
+
+            // Chiamata per la ricerca delle serie tv
+            const tvResponse = await axios.get(
+                `https://api.themoviedb.org/3/search/tv?api_key=7ab5d6135ce0dc792ccf3d67dbe0c8f8&query=${search}`
+            );
+            setResults([...tvResponse.data.results, ...movieResponse.data.results]);
         } catch (error) {
             console.error('Errore nella richiesta API:', error);
         }
     };
+
+
 
     return (
         <>
