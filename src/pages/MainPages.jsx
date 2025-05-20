@@ -35,19 +35,25 @@ const MainPages = () => {
 
     return (
         <>
-            <div className='container'>
-                <Header
-                    query={search}
-                    setQuery={setSearch}
-                    searchMovies={searchMovies}
-                />
-                <div>
-                    {results.map((movie) => (
-                        <MovieCard key={movie.id} movie={movie} />
-                    ))}
-
+            <div className='row'>
+                <div className='col-12 p-5 bg-dark'>
+                    <Header
+                        query={search}
+                        setQuery={setSearch}
+                        searchMovies={searchMovies}
+                    />
                 </div>
             </div>
+            <div className='container my-3'>
+                <div className='row'>
+                    {results.map((movie) => (
+                        <div className="col-6 col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center" key={movie.id}>
+                            <MovieCard movie={movie} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
         </>
     )
 }

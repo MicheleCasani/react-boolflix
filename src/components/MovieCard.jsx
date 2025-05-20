@@ -36,29 +36,42 @@ const MovieCard = ({ movie }) => {
 
 
     return (
-        <div>
-            <img src={imagePath} alt="" />
-            <h3>{movie.title || movie.name}</h3>
-            <p><strong>Titolo originale:</strong> {movie.original_title || movie.original_name}</p>
-            <p>
-                <strong>Lingua:</strong>
-                {' '}
-                {countryFlag ? (
-                    <img
-                        src={`https://flagcdn.com/24x18/${countryFlag}.png`}
-                        alt={movie.original_language}
-                    />
-                ) : (
-                    movie.original_language
-                )}
-            </p>
-            <p><strong>Voto:</strong> {starArray.map((number) => {
-                if (number <= vote) {
-                    return <span key={number}><i className="fa-solid fa-star"></i></span>;
-                } else {
-                    return <span key={number}><i className="fa-regular fa-star"></i></span>;
-                }
-            })}</p>
+        <div className='movie-card' style={{ width: '18rem' }}>
+
+
+            <img className='card-img-top poster-img' src={imagePath} alt="" />
+
+
+            <div className='card-overlay'>
+
+                <h3 className='card-title '>{movie.title || movie.name}</h3>
+
+                <p ><strong>Titolo originale:</strong> {movie.original_title || movie.original_name}</p>
+
+                <p>
+                    <strong>Lingua:</strong>
+                    {' '}
+                    {countryFlag ? (
+                        <img
+                            src={`https://flagcdn.com/24x18/${countryFlag}.png`}
+                            alt={movie.original_language}
+                        />
+                    ) : (
+                        movie.original_language
+                    )}
+                </p>
+
+                <p><strong >Voto:</strong> {starArray.map((number) => {
+                    if (number <= vote) {
+                        return <span key={number}><i className="fa-solid fa-star star-color"></i></span>;
+                    } else {
+                        return <span key={number}><i className="fa-regular fa-star star-color"></i></span>;
+                    }
+                })}
+                </p>
+                <p className='overview'><strong>Trama:</strong> {movie.overview}</p>
+            </div>
+
         </div>
     );
 };

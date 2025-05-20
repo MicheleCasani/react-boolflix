@@ -2,16 +2,29 @@ import React from 'react';
 
 const Header = ({ query, setQuery, searchMovies }) => {
     return (
-        <header>
-            <input
-                type="text"
-                placeholder="Cerca un film..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}  // aggiorna lo stato in MainPages
-            />
-            <button onClick={searchMovies}>
-                Cerca
-            </button>
+        <header className='d-flex justifycontent-between'>
+
+            <div className='col-6 d-flex justify-content-start text-danger '>
+                <h1 className='logo'>BOOLFIX</h1>
+            </div>
+
+            <div className='col-6 d-flex justify-content-end '>
+
+                <input
+                    className='form-control mx-5 input-search'
+                    type="text"
+                    placeholder="Cerca un film..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}  // aggiorna lo stato in MainPages
+                />
+
+                <button
+                    className='btn btn-danger text-dark btn-search'
+                    onClick={searchMovies}>
+                    Cerca
+                </button>
+
+            </div>
         </header>
     );
 };
