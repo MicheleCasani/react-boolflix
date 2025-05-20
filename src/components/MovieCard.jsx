@@ -28,7 +28,7 @@ const MovieCard = ({ movie }) => {
     const vote = Math.ceil(movie.vote_average / 2);
 
     // variabile che contiene  il path delle copertine dei film/serie
-    const imagePath = `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+    const imagePath = `https://image.tmdb.org/t/p/w342${movie.poster_path}`
 
     // recupero il codice della bandiera corrispondente alla lingua del film/serie
     const countryFlag = languageFlags[movie.original_language];
