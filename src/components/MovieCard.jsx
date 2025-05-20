@@ -1,6 +1,8 @@
 import React from 'react';
 
 const MovieCard = ({ movie }) => {
+
+    //  assegno ad ogni lingua il codice della bandiera corrispondente
     const languageFlags = {
         en: 'gb',
         it: 'it',
@@ -18,14 +20,16 @@ const MovieCard = ({ movie }) => {
         pl: 'pl',
     };
 
+    // recupero il codice della bandiera corrispondente alla lingua del film/serie
     const countryFlag = languageFlags[movie.original_language];
 
     return (
         <div>
-            <h3>{movie.title || movie.name}</h3>
+            <h3>{movie.title}</h3>
             <p><strong>Titolo originale:</strong> {movie.original_title || movie.original_name}</p>
             <p>
-                <strong>Lingua:</strong>{' '}
+                <strong>Lingua:</strong>
+                {' '}
                 {countryFlag ? (
                     <img
                         src={`https://flagcdn.com/24x18/${countryFlag}.png`}
