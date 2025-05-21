@@ -3,6 +3,14 @@ body {
 }
 
 /* header */
+
+.fixed {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+}
+
 .btn-search {
     font-size: 20px;
     font-weight: 600;

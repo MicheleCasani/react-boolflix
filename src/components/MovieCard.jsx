@@ -76,13 +76,26 @@ const MovieCard = ({ movie }) => {
     // recupero il codice della bandiera corrispondente alla lingua del film/serie
     const countryFlag = languageFlags[movie.original_language];
 
+    let setImg = () => {
+        if (movie.poster_path === null) {
+            return (
+                <img className='card-img-top' src="src/assets/ChatGPT_Image_21_mag_2025_10_31_15.png" />
+            )
+        }
+        else {
+            return (
+                <img className='card-img-top' src={imagePath} alt="" />
+            )
+        }
+    }
+
 
 
     return (
-        <div className='movie-card' style={{ width: '18rem' }}>
+        <div className='movie-card' style={{ width: '20rem' }}>
 
 
-            <img className='card-img-top poster-img' src={imagePath} alt="" />
+            {setImg()}
 
 
             <div className='card-overlay'>

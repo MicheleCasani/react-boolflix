@@ -32,10 +32,40 @@ const MainPages = () => {
     };
 
 
+    const show = () => {
+        if (results.length > 0) {
+            return (
+                <>
+                    {results.map((movie) => (
+                        <div
+                            className="col-6 col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center"
+                            key={movie.id}
+                        >
+                            <MovieCard movie={movie} />
+                        </div>
+                    ))}
+                </>
+            );
+        }
+        else {
+            return (
+                <div className="col-12 d-flex justify-content-center">
+                    <img
+                        src="src/assets/ChatGPT_Image_21_mag_2025_10_31_15.png"
+                        alt="Nessun risultato"
+                        className="img-fluid"
+                        style={{ maxHeight: '500px' }}
+                    />
+                </div>
+            );
+        }
+
+    }
+
 
     return (
         <>
-            <div className='row'>
+            <div className='row fixed'>
                 <div className='col-12 p-5 bg-dark'>
                     <Header
                         query={search}
@@ -46,11 +76,7 @@ const MainPages = () => {
             </div>
             <div className='container my-3'>
                 <div className='row'>
-                    {results.map((movie) => (
-                        <div className="col-6 col-sm-4 col-md-3 col-lg-3 d-flex justify-content-center" key={movie.id}>
-                            <MovieCard movie={movie} />
-                        </div>
-                    ))}
+                    {show()}
                 </div>
             </div>
 
@@ -59,3 +85,5 @@ const MainPages = () => {
 }
 
 export default MainPages
+
+
