@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { genresList } from '../data/data';
 
 const MovieCard = ({ movie }) => {
 
@@ -22,47 +23,15 @@ const MovieCard = ({ movie }) => {
         pl: 'pl',
     };
 
-    // assegno ad ogni id del genere il nome del genere in italiano
-    let GenreArray = {
 
-        20: 'Azione',
-        12: 'Avventura',
-        16: 'Animazione',
-        35: 'Commedia',
-        80: 'Crime',
-        99: 'Documentario',
-        18: 'Drama',
-        10751: 'Per tutta la famiglia',
-        14: 'Fantasy',
-        36: 'Storico',
-        27: 'Horror',
-        10402: 'Musical',
-        9648: 'Mistero',
-        10749: 'Romantico',
-        878: 'Fiction Scientifica',
-        10770: 'TV Movie',
-        53: 'Thriller',
-        10752: 'Guerra',
-        37: 'Western',
-        10759: 'Azione e Avventura',
-        10762: 'Per Bambini',
-        10763: 'Mistero',
-        10764: 'Reality',
-        10765: 'Sci-Fi & Fantasy',
-        10766: 'Soap Opera',
-        10767: 'Talk Show',
-        10768: 'Guerra e Politica',
-
-
-
-    }
+    const GenreMap = (genresList.map(genre => [genre.id, genre.name]));
 
     const getGenres = () => {
         if (movie.genre_ids.length === 0) {
             return ['Genere non disponibile']
         }
         return movie.genre_ids
-            .map((id) => GenreArray[id])
+            .map((id) => GenreMap[id])
     };
 
     // numero massimo di stelle da mostrare

@@ -5,6 +5,7 @@ import axios from 'axios'
 import MovieCard from '../components/MovieCard'
 
 
+
 const MainPages = () => {
 
     // useState per la ricerca
@@ -70,6 +71,7 @@ const MainPages = () => {
                     />
                 </div>
             </div>
+
             <div className='container my-3'>
                 <div className='row'>
                     {show()}

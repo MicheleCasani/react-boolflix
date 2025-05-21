@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Header = ({ query, setQuery, searchMovies }) => {
     return (
         <header className='d-flex justifycontent-between'>
