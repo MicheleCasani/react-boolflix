@@ -97,3 +97,11 @@ body {
     width: 25px;
     height: 20px;
 }
+
+.overview {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

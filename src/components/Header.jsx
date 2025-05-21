@@ -4,7 +4,7 @@ const Header = ({ query, setQuery, searchMovies }) => {
     return (
         <header className='d-flex justifycontent-between'>
 
-            <div className='col-6 d-flex justify-content-start text-danger '>
+            <div className='col-6 d-flex justify-content-start text-danger'>
                 <h1 className='logo'>BOOLFLIX</h1>
             </div>
 

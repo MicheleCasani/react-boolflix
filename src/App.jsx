@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import MainPages from './pages/MainPages'
 
-
 function App() {
 
 

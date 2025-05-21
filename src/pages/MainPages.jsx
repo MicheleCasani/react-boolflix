@@ -75,7 +75,6 @@ const MainPages = () => {
                     {show()}
                 </div>
             </div>
-
         </>
     )
 }
