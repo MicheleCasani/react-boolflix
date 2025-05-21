@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const MovieCard = ({ movie }) => {
 
@@ -89,6 +91,29 @@ const MovieCard = ({ movie }) => {
         }
     }
 
+    const [cast, setCast] = useState([]);
+
+    const getCast = async (id) => {
+        try {
+            const castMovieResponse = await axios.get(
+                `https://api.themoviedb.org/3/movie/${id}/credits?api_key=7ab5d6135ce0dc792ccf3d67dbe0c8f8`
+            );
+
+            const castSerieResponse = await axios.get(
+                `https://api.themoviedb.org/3/tv/${id}/credits?api_key=7ab5d6135ce0dc792ccf3d67dbe0c8f8`
+            );
+
+            setCast([...castMovieResponse.data.cast, ...castSerieResponse.data.cast]);
+
+        } catch (error) {
+            console.error('Errore nel recupero del cast:', error);
+            setCast([]);
+        }
+    };
+
+    useEffect(() => {
+        getCast(movie.id);
+    }, [movie.id]);
 
 
     return (
@@ -105,6 +130,12 @@ const MovieCard = ({ movie }) => {
                 <p ><strong>Titolo originale:</strong> {movie.original_title || movie.original_name}</p>
 
                 <p ><strong>Genere:</strong> {getGenres().join(', ')}</p>
+
+                <p><strong>Cast:</strong> {cast.slice(0, 5).map((cast) => {
+                    return (
+                        <span>{cast.name}{', '}</span>
+                    )
+                })}</p>
 
                 <p>
                     <strong>Lingua:</strong>

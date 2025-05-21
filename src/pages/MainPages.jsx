@@ -31,7 +31,6 @@ const MainPages = () => {
         }
     };
 
-
     const show = () => {
         if (results.length > 0) {
             return (
