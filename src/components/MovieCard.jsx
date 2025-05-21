@@ -79,12 +79,12 @@ const MovieCard = ({ movie }) => {
     let setImg = () => {
         if (movie.poster_path === null) {
             return (
-                <img className='card-img-top' src="src/assets/ChatGPT_Image_21_mag_2025_10_31_15.png" />
+                <img className='card-img-top poster-img' src="src/assets/ChatGPT_Image_21_mag_2025_10_31_15.png" style={{ img: 'fluid' }} />
             )
         }
         else {
             return (
-                <img className='card-img-top' src={imagePath} alt="" />
+                <img className='card-img-top poster-img' src={imagePath} alt="" />
             )
         }
     }

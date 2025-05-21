@@ -37,6 +37,11 @@ body {
 
 /* main */
 
+.main-logo {
+    font-size: 200px;
+    font-weight: 700;
+}
+
 .movie-card {
     position: relative;
     width: 200px;

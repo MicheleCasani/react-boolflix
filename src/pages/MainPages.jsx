@@ -49,16 +49,13 @@ const MainPages = () => {
         }
         else {
             return (
-                <div className="col-12 d-flex justify-content-center">
-                    <img
-                        src="src/assets/ChatGPT_Image_21_mag_2025_10_31_15.png"
-                        alt="Nessun risultato"
-                        className="img-fluid"
-                        style={{ maxHeight: '500px' }}
-                    />
+                <div className="col-12 d-flex flex-column justify-content-center align-items-center text-center" style={{ height: '80vh' }}>
+                    <h1 className='main-logo text-danger'>BOOLFLIX</h1>
+                    <div className='text-white'>Un mondo di Film e Serie in esclusiva!</div>
                 </div>
             );
         }
+
 
     }
 
